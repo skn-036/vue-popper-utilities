@@ -123,7 +123,7 @@ This is the base component of the popper. All other components are the extractio
 | placement                             | [Placement](https://popper.js.org/docs/v2/constructors/#placement)                        | `bottom-start`                        | Placement of the popup element with respect to reference.                                                                                                                                                                  |
 | offset                                | Array [number, number] [Popper offset](https://popper.js.org/docs/v2/modifiers/offset/)   | `[0, 4]`                              | Offset of the popper relative to the reference.                                                                                                                                                                            |
 | strategy                              | String [Strategy](https://popper.js.org/docs/v2/constructors/#strategy)                   | `absolute`                            | Positioning strategy. possible values are **absolute** or **fixed**.                                                                                                                                                           |
-| options                               | [Options](https://popper.js.org/docs/v2/constructors/#options)                            | `undefined`                           | Can be used for having more fine control over, how the popup will aprear. Most of the times above props will work fine. This props has high priority over **placement**, **offset** and **strategy** props. setting this will override other values. Values are calculated by deep comparing i.e; if value exists on the **options** prop it will take from **options** prop. Otherwise if value exists on the other props, it will take other props. Otherwise it will take from default values. |
+| options                               | [Options](https://popper.js.org/docs/v2/constructors/#options)                            | `undefined`                           | Can be used for having more fine control over, how the popup will aprear. Most of the times above props will work fine.<br /><br />This props has high priority over **placement**, **offset** and **strategy** props. setting this will override other values. Values are calculated by deep comparing i.e; if value exists on the **options** prop it will take from **options** prop. Otherwise if value exists on the other props, it will take other props. Otherwise it will take from default values. |
 | on-first-update                       | [Function](https://popper.js.org/docs/v2/constructors/#options)                           | `undefined`                           | Callback function to run after the first update of the popper.js.
 | model-value                           | Boolean                                                                                   | `undefined`                           | Can be used to control popup dynamically from a variable. **IMPORTANT**: reference props must be required with this prop to work. |
 | reference                             | Element or String or null                                                                 | `null`                                | if popup is controlled by v-model, reference element is the target element where to glue in the popup. It's value can be any HTML element or any valid css selector. **IMPORTANT**: must be required with v-model. |
@@ -238,7 +238,7 @@ emit('create-error', popper_el.value, ref_el.value);
 
 ### Expose
 Popup.vue exposes following properties:
--   `isPopperOpen ${boolean}` whether the popup open
+-   `isPopperOpen {boolean}` whether the popup open
 -   `show {function}` show the popup
 -   `hide {function}` hide the popup
 -   `el {HTMLElement}` root element of the popper
@@ -427,7 +427,7 @@ we can also customize through css styling.
 </style>
 ```
 ## Bugs and new feature
-Please feel free add issues with any bugs or any feature request.
+Please create a issue on this repository for any bugs or any feature request.
 
 ## License
 This is open source project under MIT license.

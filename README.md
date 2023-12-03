@@ -10,7 +10,7 @@ vue-popper-utilities is a wrapper around popperjs@core for Vue.js for creating a
 -   Predefined components like `Dropdown`, `DropdownChild`, `Tooltip` for covering most of the use case.
 -   Fully customizable. It is possible to make any kind of custom popup using the package.
 -   Keyboard navigation between multiple children dropdowns.
--   transition and animation capability using vue default 
+-   transition and animation capability using vue default **Transition** component.
 
 ## Getting started
 

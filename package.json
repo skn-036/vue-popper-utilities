@@ -1,0 +1,39 @@
+{
+    "name": "vue-popper-utilities",
+    "private": false,
+    "version": "1.0.0",
+    "type": "module",
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/vue-popper-utilities.umd.cjs",
+    "module": "./dist/vue-popper-utilities.js",
+    "exports": {
+        ".": {
+            "import": "./dist/vue-popper-utilities.js",
+            "require": "./dist/vue-popper-utilities.umd.cjs"
+        },
+        "./style.css": "./dist/style.css"
+    },
+    "types": "./dist/index.d.ts",
+    "scripts": {
+        "dev": "vite",
+        "build": "vue-tsc && vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@popperjs/core": "^2.11.8",
+        "lodash": "^4.17.21",
+        "uuid": "^9.0.1",
+        "vue": "^3.3.8"
+    },
+    "devDependencies": {
+        "@types/lodash": "^4.14.202",
+        "@types/uuid": "^9.0.7",
+        "@vitejs/plugin-vue": "^4.5.0",
+        "typescript": "^5.2.2",
+        "vite": "^5.0.0",
+        "vite-plugin-dts": "^3.6.4",
+        "vue-tsc": "^1.8.22"
+    }
+}

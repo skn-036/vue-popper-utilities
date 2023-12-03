@@ -19,10 +19,10 @@ const childId = ref(`dropdown-item-${v4()}`);
 }
 
 .skn-popper__dropdown-item:hover {
-    background: #fafafa;
+    background: var(--skn-popper-active-item-hover);
 }
 
 .skn-popper__dropdown-item.active-item {
-    background: #e6e6e6;
+    background: var(--skn-popper-active-item-bg);
 }
 </style>

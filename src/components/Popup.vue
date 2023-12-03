@@ -545,44 +545,71 @@ defineExpose({
     </div>
 </template>
 
+<style>
+:root {
+    --skn-popper-active-item-bg: #e6e6e6;
+    --skn-popper-active-item-hover: #fafafa;
+    --skn-popper-z-index: 1133;
+    --skn-popper-arrow-width: 12px;
+    --skn-popper-arrow-height: 12px;
+    --skn-popper-arrow-transform-plus: 6px;
+    --skn-popper-arrow-transform-minus: -6px;
+
+    --skn-popper-tooltip-bg: #121212;
+    --skn-popper-tooltip-color: #fff;
+    --skn-popper-tooltip-padding: 16px;
+    --skn-popper-tooltip-max-width: 320px;
+    
+    --skn-popper-dropdown-container-border: 1px solid #e6e6e6;
+    --skn-popper-dropdown-container-box-shadow: 0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+        0px 3px 14px 2px rgba(0, 0, 0, 0.12),
+        0px 5px 5px -3px rgba(0, 0, 0, 0.2);
+}
+</style>
+
 <style scoped>
 .skn-popper.active-item > .skn-popper__reference {
-    background: #e6e6e6;
+    background: var(--skn-popper-active-item-bg);
 }
 .skn-popper__arrow {
     height: 0;
 }
 .skn-popper__arrow .arrow {
-    width: 12px;
-    height: 12px;
+    width: var(--skn-popper-arrow-width);
+    height: var(--skn-popper-arrow-height);
 }
 .skn-popper__content {
-    z-index: 1133;
+    width: fit-content;
+    z-index: var(--skn-popper-z-index);
 }
 
 .skn-popper__content[data-popper-placement^='right'] .arrow {
-    transform: translateX(-6px) rotate(45deg);
+    transform: translateX(var(--skn-popper-arrow-transform-minus)) rotate(45deg);
 }
 
 .skn-popper__content[data-popper-placement^='right-start'] .arrow {
-    transform: translateX(-6px) translateY(6px) rotate(45deg);
+    transform: translateX(var(--skn-popper-arrow-transform-minus))
+        translateY(var(--skn-popper-arrow-transform-plus)) rotate(45deg);
 }
 
 .skn-popper__content[data-popper-placement^='right-end'] .arrow {
-    transform: translateX(-6px) translateY(-6px) rotate(45deg);
+    transform: translateX(var(--skn-popper-arrow-transform-minus))
+        translateY(var(--skn-popper-arrow-transform-minus)) rotate(45deg);
 }
 
 /* bottom */
 .skn-popper__content[data-popper-placement^='bottom'] .arrow {
-    transform: translateY(-6px) rotate(45deg);
+    transform: translateY(var(--skn-popper-arrow-transform-minus)) rotate(45deg);
 }
 
 .skn-popper__content[data-popper-placement^='bottom-start'] .arrow {
-    transform: translateX(6px) translateY(-6px) rotate(45deg);
+    transform: translateX(var(--skn-popper-arrow-transform-plus))
+        translateY(var(--skn-popper-arrow-transform-minus)) rotate(45deg);
 }
 
 .skn-popper__content[data-popper-placement^='bottom-end'] .arrow {
-    transform: translateX(-6px) translateY(-6px) rotate(45deg);
+    transform: translateX(var(--skn-popper-arrow-transform-minus))
+        translateY(var(--skn-popper-arrow-transform-minus)) rotate(45deg);
 }
 
 /* left */
@@ -590,15 +617,17 @@ defineExpose({
     right: 0;
 }
 .skn-popper__content[data-popper-placement^='left'] .arrow {
-    transform: translateX(6px) rotate(45deg);
+    transform: translateX(var(--skn-popper-arrow-transform-plus)) rotate(45deg);
 }
 
 .skn-popper__content[data-popper-placement^='left-start'] .arrow {
-    transform: translateX(6px) translateY(6px) rotate(45deg);
+    transform: translateX(var(--skn-popper-arrow-transform-plus))
+        translateY(var(--skn-popper-arrow-transform-plus)) rotate(45deg);
 }
 
 .skn-popper__content[data-popper-placement^='left-end'] .arrow {
-    transform: translateX(6px) translateY(-6px) rotate(45deg);
+    transform: translateX(var(--skn-popper-arrow-transform-plus))
+        translateY(var(--skn-popper-arrow-transform-minus)) rotate(45deg);
 }
 
 /* top */
@@ -606,14 +635,16 @@ defineExpose({
     bottom: 0;
 }
 .skn-popper__content[data-popper-placement^='top'] .arrow {
-    transform: translateY(-6px) rotate(45deg);
+    transform: translateY(var(--skn-popper-arrow-transform-minus)) rotate(45deg);
 }
 
 .skn-popper__content[data-popper-placement^='top-start'] .arrow {
-    transform: translateX(6px) translateY(-6px) rotate(45deg);
+    transform: translateX(var(--skn-popper-arrow-transform-plus))
+        translateY(var(--skn-popper-arrow-transform-minus)) rotate(45deg);
 }
 
 .skn-popper__content[data-popper-placement^='top-end'] .arrow {
-    transform: translateX(-6px) translateY(-6px) rotate(45deg);
+    transform: translateX(var(--skn-popper-arrow-transform-minus))
+        translateY(var(--skn-popper-arrow-transform-minus)) rotate(45deg);
 }
 </style>

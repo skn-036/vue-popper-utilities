@@ -101,12 +101,12 @@ defineExpose({
 
 <style scoped>
 .skn-popper_tooltip {
-    background: #121212;
-    color: #fff;
-    padding: 16px;
-    max-width: 320px;
+    background: var(--skn-popper-tooltip-bg);
+    color: var(--skn-popper-tooltip-color);
+    padding: var(--skn-popper-tooltip-padding);
+    max-width: var(--skn-popper-tooltip-max-width);
 }
 :deep(.skn-popper_arrow) {
-    background: #121212;
+    background: var(--skn-popper-tooltip-bg);
 }
 </style>

@@ -14,6 +14,8 @@ vue-popper-utilities is a wrapper around popperjs@core for Vue.js for creating a
 -   Keyboard navigation between multiple children dropdowns.
 -   transition and animation capability using vue default **Transition** component.
 
+**Please check the demo [here](https://stackblitz.com/~/github.com/skn-036/vue-popper-utilities-demo?file=src%2FApp.vue)**
+
 ## Getting started
 
 ```js

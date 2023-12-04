@@ -7,6 +7,7 @@ import {
     Options,
     Instance,
     VirtualElement,
+    Modifier,
 } from '@popperjs/core';
 import {
     filterArrayUniqueByKey,
@@ -54,6 +55,7 @@ const props = withDefaults(defineProps<Props>(), {
     localEventListeners: () => false,
     isDropdown: () => false,
     isDropdownChild: () => false,
+    sameWidthAsReference: () => false,
 });
 
 const emit = defineEmits<Emit>();
@@ -118,7 +120,7 @@ const initiatePopperIfNotSetAndToggle = (val: boolean) => {
 };
 
 const defaultOptions = computed<Options>(() => {
-    return {
+    const options: Options = {
         placement: 'bottom-start',
         strategy: 'absolute',
         modifiers: [
@@ -131,6 +133,21 @@ const defaultOptions = computed<Options>(() => {
         ],
         onFirstUpdate: undefined,
     };
+
+    if (props.sameWidthAsReference) {
+        const sameWidthModifier: Partial<Modifier<any, any>> = {
+            name: 'sameWidth',
+            enabled: true,
+            fn: ({ state }) => {
+                state.styles.popper.width = `${state.rects.reference.width}px`;
+            },
+            phase: 'beforeWrite',
+            requires: ['computeStyles'],
+        };
+        options.modifiers.push(sameWidthModifier);
+    }
+
+    return options;
 });
 
 const optionsFromProps = computed<Options>(() => {
@@ -559,16 +576,18 @@ defineExpose({
     --skn-popper-tooltip-color: #fff;
     --skn-popper-tooltip-padding: 16px;
     --skn-popper-tooltip-max-width: 320px;
-    
+
+    --skn-popper-dropdown-container-background: #ffffff;
     --skn-popper-dropdown-container-border: 1px solid #e6e6e6;
-    --skn-popper-dropdown-container-box-shadow: 0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+    --skn-popper-dropdown-container-box-shadow: 0px 8px 10px 1px
+            rgba(0, 0, 0, 0.14),
         0px 3px 14px 2px rgba(0, 0, 0, 0.12),
         0px 5px 5px -3px rgba(0, 0, 0, 0.2);
 }
 </style>
 
 <style scoped>
-.skn-popper.active-item > .skn-popper__reference {
+.active-item > .skn-popper__reference {
     background: var(--skn-popper-active-item-bg);
 }
 .skn-popper__arrow {
@@ -579,7 +598,7 @@ defineExpose({
     height: var(--skn-popper-arrow-height);
 }
 .skn-popper__content {
-    width: fit-content;
+    /* width: fit-content; */
     z-index: var(--skn-popper-z-index);
 }
 

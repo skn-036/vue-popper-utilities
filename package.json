@@ -3,7 +3,7 @@
     "private": false,
     "author": "Muhammad Sajedul Karim <noman0703036@gmail.com>",
     "description": "Wrapper around popper js for vue.js. Any custom popup element, dropdown, dropdown with children, multi-level-dropdown, tooltip component can be made very easily.",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "repository": "https://github.com/skn-036/vue-popper-utilities",
     "keywords": [
         "popper",

@@ -28,6 +28,7 @@ export type PopupProps = {
     localEventListeners?: boolean;
     isDropdown?: boolean;
     isDropdownChild?: boolean;
+    sameWidthAsReference?: boolean;
     transitionName?: string;
     enterFromClass?: string;
     enterToClass?: string;

@@ -25,9 +25,9 @@ const props = withDefaults(defineProps<Props>(), {
     forceShow: () => false,
     disabled: () => false,
     localEventListeners: () => false,
+    sameWidthAsReference: () => false,
     isDropdown: () => false,
     isDropdownChild: () => false,
-    default: () => '',
 });
 
 const emit = defineEmits<Emit>();
@@ -70,6 +70,7 @@ defineExpose({
         :local-event-listeners="localEventListeners"
         :is-dropdown="true"
         :is-dropdown-child="isDropdownChild"
+        :same-width-as-reference="sameWidthAsReference"
         :transition-name="transitionName"
         :enter-from-class="enterFromClass"
         :enter-to-class="enterToClass"

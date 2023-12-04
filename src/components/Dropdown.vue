@@ -37,7 +37,8 @@ const props = withDefaults(defineProps<Props>(), {
     hideOnItemClick: () => true,
     hideParentOnItemClick: () => true,
     keyboardNavigation: () => true,
-    dropdownClass: () => 'skn-popper__dropdown-wrapper',
+    dropdownClass: () => '',
+    sameWidthAsReference: () => false,
 });
 
 const emit = defineEmits<Emit>();
@@ -164,7 +165,7 @@ const enableKeys = (event: KeyboardEvent) => {
     }
 
     const items: HTMLElement[] = [].filter.call(
-        el.children[0].children,
+        el.children,
         (item: HTMLElement) =>
             item.classList.contains('skn-popper__dropdown-item') ||
             item.classList.contains('skn-popper')
@@ -259,6 +260,7 @@ defineExpose({
         :local-event-listeners="localEventListeners"
         :is-dropdown="true"
         :is-dropdown-child="isDropdownChild"
+        :same-width-as-reference="sameWidthAsReference"
         :transition-name="transitionName"
         :enter-from-class="enterFromClass"
         :enter-to-class="enterToClass"
@@ -283,6 +285,7 @@ defineExpose({
         <template #default="{ show, hide, isOpen }">
             <div
                 :id="dropdownId"
+                class="skn-popper__dropdown-wrapper"
                 :class="[dropdownClass]"
                 @click="onChildClick($event, hide)"
             >
@@ -294,6 +297,9 @@ defineExpose({
 
 <style scoped>
 .skn-popper__dropdown-wrapper {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    background: var(--skn-popper-dropdown-container-background);
     border: var(--skn-popper-dropdown-container-border);
     box-shadow: var(--skn-popper-dropdown-container-box-shadow);
 }

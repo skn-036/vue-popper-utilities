@@ -11,6 +11,7 @@ type Props = PopupProps & {
     keyboardNavigation?: boolean;
     dropdownClass?: string;
     childArrow?: boolean;
+    childArrowClass?: string;
 };
 type Emit = PopupEmit & {};
 
@@ -32,11 +33,13 @@ const props = withDefaults(defineProps<Props>(), {
     localEventListeners: () => false,
     isDropdown: () => false,
     isDropdownChild: () => false,
+    sameWidthAsReference: () => false,
     hideOnItemClick: () => true,
     hideParentOnItemClick: () => true,
     keyboardNavigation: () => true,
     dropdownClass: () => 'skn-popper__dropdown-wrapper',
     childArrow: () => true,
+    childArrowClass: () => '',
 });
 
 const emit = defineEmits<Emit>();
@@ -83,6 +86,7 @@ defineExpose({
         :hide-parent-on-item-click="hideParentOnItemClick"
         :keyboard-navigation="keyboardNavigation"
         :dropdown-class="dropdownClass"
+        :same-width-as-reference="sameWidthAsReference"
         :transition-name="transitionName"
         :enter-from-class="enterFromClass"
         :enter-to-class="enterToClass"
@@ -114,6 +118,7 @@ defineExpose({
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         class="css-i6dzq1"
+                        :class="[childArrowClass]"
                     >
                         <polyline points="9 18 15 12 9 6"></polyline>
                     </svg>
